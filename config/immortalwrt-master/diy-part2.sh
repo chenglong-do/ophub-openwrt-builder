@@ -15,8 +15,11 @@ sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.::0:99999:7
 sed -i "s|DISTRIB_REVISION='.*'|DISTRIB_REVISION='R$(date +%Y.%m.%d)'|g" package/base-files/files/etc/openwrt_release
 echo "DISTRIB_SOURCECODE='immortalwrt'" >>package/base-files/files/etc/openwrt_release
 
-# Modify default IP（FROM 192.168.1.1 CHANGE TO 192.168.31.4）
-# sed -i 's/192.168.1.1/192.168.31.4/g' package/base-files/files/bin/config_generate
+# 定制化配置
+sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
+sed -i 's/1608/1800/g' package/emortal/cpufreq/files/cpufreq.uci
+sed -i 's/2016/2208/g' package/emortal/cpufreq/files/cpufreq.uci
+sed -i 's/1512/1608/g' package/emortal/cpufreq/files/cpufreq.uci
 #
 # ------------------------------- Main source ends -------------------------------
 
